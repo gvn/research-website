@@ -313,6 +313,9 @@ footer ul li .icon.twitter {
 footer ul li .icon.github {
   background-image: url('/images/footer-icon-github.svg');
 }
+footer ul li .icon.flickr {
+  background-image: url('/images/footer-icon-flickr.svg');
+}
 
 footer .mozilla-logo {
   font-weight: 500;
