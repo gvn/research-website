@@ -25,8 +25,6 @@ header {
 }
 
 .outer-wrapper {
-  width: 1170px;
-  margin: 0 auto;
 }
 
 .container {
@@ -38,11 +36,10 @@ header {
 
 .top {
   text-align: center;
-  height: 740px;
+  height: 708px;
   position: relative;
-  background: url('images/top.jpg');
-  background-size: 120%;
-  background-position: 47% -220px;
+  background: url('images/banner.jpg');
+  background-size: cover;
 }
 
 .top::before {
