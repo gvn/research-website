@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  border: 0;
 }
 
 body {
@@ -24,13 +25,12 @@ header {
   z-index: 2;
 }
 
-.outer-wrapper {
+#tabzilla {
+  position: relative;
+  right: 2em;
 }
 
 .container {
-  width: 1170px;
-  margin: 0 auto;
-  padding: 0 10px;
   position: relative;
 }
 
@@ -39,6 +39,7 @@ header {
   height: 708px;
   position: relative;
   background: url('images/banner.jpg');
+  background-position: 50% 0;
   background-size: cover;
 }
 
@@ -91,7 +92,7 @@ hr {
 }
 
 .content {
-  width: 940px;
+  max-width: 940px;
   margin: 0 auto;
 }
 
@@ -103,6 +104,10 @@ hr {
   background: rgb(177,173,170);
   padding: 2em 0;
   line-height: 200%;
+}
+
+.site-description .content p {
+  padding: 0 2em;
 }
 
 .row {
