@@ -176,7 +176,7 @@ hr {
 
 .row .description .report-button {
   background: transparent;
-  border: 1px solid rgb(246,220,228);
+  border: 1px solid white;
   display: inline-block;
   width: auto;
   font-size: 1em;
