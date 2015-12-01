@@ -168,6 +168,18 @@ hr {
   font-size: 1.2em;
 }
 
+.row .description p.date {
+  text-transform: uppercase;
+  opacity: .5;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.row .description p.text-content {
+  padding: 0 2em;
+}
+
 .row .description .report-button {
   background: transparent;
   border: 1px solid rgb(246,220,228);
