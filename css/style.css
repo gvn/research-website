@@ -43,7 +43,7 @@ header {
   text-align: center;
   height: 708px;
   position: relative;
-  background: url('images/banner.jpg');
+  background: url('/images/banner.jpg');
   background-position: 50% 0;
   background-size: cover;
 }
@@ -217,14 +217,14 @@ hr {
   background: rgb(221,136,160);
 }
 .row.chicago .image {
-  background-image: url('images/chicago.jpg');
+  background-image: url('/images/chicago.jpg');
 }
 
 .row.rio {
   background: rgb(154,180,154);
 }
 .row.rio .image {
-  background-image: url('images/rio.jpg');
+  background-image: url('/images/rio.jpg');
   background-position: 50%;
 }
 
@@ -232,7 +232,7 @@ hr {
   background: rgb(167,120,140);
 }
 .row.synthesis .image {
-  background-image: url('images/synthesis.jpg');
+  background-image: url('/images/synthesis.jpg');
   background-position: 50%;
 }
 
@@ -240,7 +240,7 @@ hr {
   background: rgb(236,193,127);
 }
 .row.india .image {
-  background-image: url('images/india.jpg');
+  background-image: url('/images/india.jpg');
   background-position: 50%;
 }
 
@@ -248,7 +248,7 @@ hr {
   background: rgb(189,187,136);
 }
 .row.kenya .image {
-  background-image: url('images/kenya.jpg');
+  background-image: url('/images/kenya.jpg');
   background-position: 50%;
 }
 
@@ -256,7 +256,7 @@ hr {
   background: rgb(122,184,187);
 }
 .row.bangladesh .image {
-  background-image: url('images/bangladesh.jpg');
+  background-image: url('/images/bangladesh.jpg');
   background-position: 50%;
 }
 
@@ -277,22 +277,55 @@ footer ul li {
   font-weight: 400;
   display: inline-block;
   padding: 0 1.5em;
-  padding-left: 2em;
+  padding-left: 20px;
   position: relative;
 }
 
-footer ul li::before {
+footer ul li a {
+  color: rgb(200,200,200);
+  opacity: .7;
+  text-decoration: none;
+  transition: opacity .1s linear;
+}
+
+footer ul li a:hover {
+  opacity: 1;
+}
+
+footer ul li .icon {
+  opacity: 0.8;
   position: absolute;
-  background: rgb(138,138,138);
-  left: 0;
-  height: 1.5em;
-  width: 1.5em;
-  display: inline-block;
-  border-radius: .75em;
-  content: ' ';
+  display: block;
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: -5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+footer ul li .icon.email {
+  background-image: url('/images/footer-icon-email.svg');
+}
+footer ul li .icon.twitter {
+  background-image: url('/images/footer-icon-twitter.svg');
+}
+footer ul li .icon.github {
+  background-image: url('/images/footer-icon-github.svg');
 }
 
 footer .mozilla-logo {
   font-weight: 500;
   font-size: 2rem;
 }
+
+footer .mozilla-logo a {
+  text-decoration: none;
+  color: rgb(138,138,138);
+  transition: color .1s linear;
+}
+
+footer .mozilla-logo a:hover {
+  color: rgb(200,200,200);
+}
+
