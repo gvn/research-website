@@ -156,6 +156,29 @@ hr {
   text-decoration: none;
 }
 
+.row .description .report-button:hover {
+  background-color: white;
+}
+
+.row.chicago .report-button:hover {
+  color: rgb(221,136,160);
+}
+.row.rio .report-button:hover {
+  color: rgb(154,180,154);
+}
+.row.synthesis .report-button:hover {
+  color: rgb(167,120,140);
+}
+.row.india .report-button:hover {
+  color: rgb(236,193,127);
+}
+.row.kenya .report-button:hover {
+  color: rgb(189,187,136);
+}
+.row.bangladesh .report-button:hover {
+  color: rgb(122,184,187);
+}
+
 .row .image {
   background-size: cover;
   height: 100%;
