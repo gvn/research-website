@@ -17,7 +17,6 @@ body {
   font: 12pt 'Fira Sans';
   font-weight: 200;
   font-style: normal;
-  border-top: 4px solid white;
 }
 
 a {
@@ -28,11 +27,6 @@ header {
   width: 100%;
   position: absolute;
   z-index: 2;
-}
-
-#tabzilla {
-  position: relative;
-  right: 2em;
 }
 
 .container {
@@ -329,18 +323,30 @@ footer ul li .icon.flickr {
   background-image: url('/images/footer-icon-flickr.svg');
 }
 
-footer .mozilla-logo {
+.mozilla-logo {
   font-weight: 500;
   font-size: 2rem;
+  margin: 0;
 }
 
-footer .mozilla-logo a {
+.mozilla-logo a {
+  opacity: 0.5;
   text-decoration: none;
-  color: rgb(138,138,138);
-  transition: color .1s linear;
+  transition: opacity .1s linear;
 }
 
-footer .mozilla-logo a:hover {
-  color: rgb(200,200,200);
+.mozilla-logo a:hover {
+  opacity: .8;
+}
+
+header .mozilla-logo {
+  text-align: right;
+  padding-top: 15px;
+  padding-right: 20px;
+}
+
+footer .mozilla-logo {
+  margin: 1em 0;
+  text-align: center;
 }
 
