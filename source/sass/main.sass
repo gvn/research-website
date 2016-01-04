@@ -1,2 +1,113 @@
+// Colors
+$black: #000
+$white: #fff
+$dark-gray: #3C3C3B
+$light-gray: #A09D9A
+
+$bp-medium: 820px
+$bp-large: 1170px
+
+*
+  margin: 0
+  padding: 0
+
+html
+  font-size: 10px
+
 body
-  background: #3C3C3B
+  padding: 0
+  margin: 0
+  background: $dark-gray
+  font-family: "Fira Sans"
+  font-weight: 200
+  max-width: 1280px
+  margin: auto
+
+h1, h2
+  font-size: 52px
+  font-weight: 200
+
+hr
+  width: 25%
+  margin: 10px auto
+
+.button
+  border: 1px solid $white
+  text-transform: uppercase
+  padding: 10px
+  margin: 10px 0
+  text-decoration: none
+  color: $white
+  display: inline-block
+
+header
+  background: url(../images/banner.jpg)
+  background-size: cover
+  min-height: 300px
+  display: flex
+  padding: 10px
+  flex-direction: column-reverse
+
+  .attribution
+    font-size: 1.2rem
+    font-style: italic
+    text-align: right
+    color: $white
+
+.block
+  padding: 10px
+  color: $white
+  font-size: 1.6rem
+  text-align: center
+
+  p
+    margin: 1em 0
+
+    &.larger
+      font-size: 20px
+
+  &.block-header
+    background: $light-gray
+
+  &.block-image
+    min-height: 300px
+    background-size: cover
+
+@media screen and (min-width: $bp-medium)
+  .wrapper
+    display: flex
+
+    &:nth-child(2n+0)
+      .block:nth-child(1n+0)
+        order: 2
+      .block:nth-child(2n+0)
+        order: 1
+
+    .block
+      flex: 1
+
+@mixin custom-block-pair($color, $image)
+  .block
+    background-color: $color
+  .block-image
+    background-image: url($image)
+
+#chicago
+  @include custom-block-pair(#D06080,'../images/chicago.jpg')
+#rio
+  @include custom-block-pair(#7A9D79, '../images/rio.jpg')
+#synthesis
+  @include custom-block-pair(#7A3B59, '../images/synthesis.jpg')
+#india
+  @include custom-block-pair(#E5AE56, '../images/india.jpg')
+#kenya
+  @include custom-block-pair(#A7A761, '../images/kenya.jpg')
+#bangladesh
+  @include custom-block-pair(#56A1A5, '../images/bangladesh.jpg')
+
+
+
+
+
+footer
+  color: rgba(255, 255, 255, 0.5)
