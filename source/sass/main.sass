@@ -1,0 +1,272 @@
+@keyframes fadeIn
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+html
+  width: 100%
+  height: 100%
+  padding: 0
+  margin: 0
+  border: 0
+
+body
+  width: 100%
+  height: 100%
+  padding: 0
+  margin: 0
+  border: 0
+  background: rgb(41, 41, 41)
+  color: white
+  font: 12pt 'Fira Sans'
+  font-weight: 200
+  font-style: normal
+
+a
+  color: white
+
+header
+  width: 100%
+  position: absolute
+  z-index: 2
+
+.container
+  position: relative
+
+.top
+  text-align: center
+  height: 708px
+  position: relative
+  background: url('../images/banner.jpg')
+  background-position: 50% 0
+  background-size: cover
+  &::before
+    opacity: 0
+    position: absolute
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 100%)
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    content: ' '
+    animation: fadeIn 1s ease-in
+    animation-duration: 0.3s
+    animation-delay: 0.3s
+    animation-fill-mode: forwards
+
+h1
+  text-align: center
+  font-weight: 200
+  font-size: 5rem
+  margin: 0
+
+.top .content
+  opacity: 0
+  animation: fadeIn 1s ease-in
+  animation-duration: 0.3s
+  animation-delay: 0.5s
+  animation-fill-mode: forwards
+  hr, p
+    opacity: 0
+    animation: fadeIn 1s ease-in
+    animation-duration: 0.3s
+    animation-delay: 0.5s
+    animation-fill-mode: forwards
+  hr
+    animation-delay: 0.5s
+  p
+    animation-delay: 0.6s
+
+hr
+  width: 85px
+  background-color: white
+  height: 1px
+  border: 0
+  margin: 2em auto
+
+.top
+  p
+    font-style: italic
+    font-size: 1.5rem
+  .attribution
+    position: absolute
+    bottom: 1em
+    right: 2em
+    font-size: .85em
+    color: rgb(175, 178, 181)
+    a
+      color: rgb(175, 178, 181)
+  .container
+    display: flex
+    align-items: center
+    height: 100%
+
+.content
+  max-width: 940px
+  margin: 0 auto
+
+.site-description
+  text-align: center
+  font-weight: 300
+  font-size: 1.25rem
+  font-style: italic
+  background: rgb(177, 173, 170)
+  padding: 2em 0
+  line-height: 200%
+  .content p
+    padding: 0 2em
+
+.row
+  height: 585px
+  color: white
+  display: flex
+  align-items: center
+  h1
+    font-weight: 200
+    font-size: 4rem
+  hr
+    margin-top: .5em
+    margin-bottom: 1em
+  div
+    width: 50%
+    text-align: center
+    p
+      text-align: center
+      width: 70%
+      margin: 0 auto
+      margin-bottom: 2em
+      font-size: 1.2em
+  .description
+    p
+      &.date
+        text-transform: uppercase
+        opacity: .5
+        font-weight: 400
+        font-size: 15px
+        margin: 0 auto
+      &.text-content
+        padding: 0 2em
+    .report-button
+      background: transparent
+      border: 1px solid white
+      display: inline-block
+      width: auto
+      font-size: 1em
+      font-family: 'Fira Sans'
+      font-weight: 300
+      padding: .75em 2em
+      text-transform: uppercase
+      color: white
+      margin: 0 auto
+      text-align: center
+      text-decoration: none
+      transition: background-color .15s, color .15s
+      &:hover
+        background-color: white
+  &.chicago .report-button:hover
+    color: rgb(221, 136, 160)
+  &.rio .report-button:hover
+    color: rgb(154, 180, 154)
+  &.synthesis .report-button:hover
+    color: rgb(167, 120, 140)
+  &.india .report-button:hover
+    color: rgb(236, 193, 127)
+  &.kenya .report-button:hover
+    color: rgb(189, 187, 136)
+  &.bangladesh .report-button:hover
+    color: rgb(122, 184, 187)
+  .image
+    background-size: cover
+    height: 100%
+  &.chicago
+    background: rgb(221, 136, 160)
+    .image
+      background-image: url('../images/chicago.jpg')
+  &.rio
+    background: rgb(154, 180, 154)
+    .image
+      background-image: url('../images/rio.jpg')
+      background-position: 50%
+  &.synthesis
+    background: rgb(167, 120, 140)
+    .image
+      background-image: url('../images/synthesis.jpg')
+      background-position: 50%
+  &.india
+    background: rgb(236, 193, 127)
+    .image
+      background-image: url('../images/india.jpg')
+      background-position: 50%
+  &.kenya
+    background: rgb(189, 187, 136)
+    .image
+      background-image: url('../images/kenya.jpg')
+      background-position: 50%
+  &.bangladesh
+    background: rgb(122, 184, 187)
+    .image
+      background-image: url('../images/bangladesh.jpg')
+      background-position: 50%
+
+footer
+  background: rgb(77, 77, 77)
+  color: rgb(138, 138, 138)
+  padding: 2em 0
+  padding-bottom: 1em
+  text-align: center
+  ul
+    padding: 0
+    list-style: none
+    li
+      font-weight: 400
+      display: inline-block
+      padding: 0 1.5em
+      padding-left: 20px
+      position: relative
+      a
+        color: rgb(200, 200, 200)
+        opacity: .7
+        text-decoration: none
+        transition: opacity .1s linear
+        &:hover
+          opacity: 1
+      .icon
+        opacity: 0.8
+        position: absolute
+        display: block
+        width: 20px
+        height: 20px
+        top: 2px
+        left: -5px
+        background-repeat: no-repeat
+        background-position: center
+        &.email
+          background-image: url('../images/footer-icon-email.svg')
+        &.twitter
+          background-image: url('../images/footer-icon-twitter.svg')
+        &.github
+          background-image: url('../images/footer-icon-github.svg')
+        &.flickr
+          background-image: url('../images/footer-icon-flickr.svg')
+
+.mozilla-logo
+  font-weight: 500
+  font-size: 2rem
+  margin: 0
+  a
+    opacity: 0.5
+    text-decoration: none
+    transition: opacity .1s linear
+    &:hover
+      opacity: .8
+
+header .mozilla-logo
+  text-align: right
+  padding-top: 15px
+  padding-right: 20px
+
+footer .mozilla-logo
+  margin: 1em 0
+  text-align: center
