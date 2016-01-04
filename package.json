@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build && npm-run-all --parallel server watch:**",
     "build": "mkdirp dest && npm-run-all --parallel build:**",
     "build:static": "npm-run-all --parallel copy:**",
     "build:sass": "node-sass --source-map dest/css/main.css.map source/sass/main.sass dest/css/main.compiled.css",
