@@ -19,7 +19,7 @@ html
     title Studying the Global Web
   body
     header
-      p.attribution photos by #[a(href='') Laura de Reynal]
+      p.attribution photos by #[a(href='#NEED_URL') Laura de Reynal]
 
     .block.block-header
       h1.
@@ -34,12 +34,12 @@ html
       .wrapper(id=location.toLowerCase())
         .block.block-image
         .block
-          h1=location
+          h2=location
           hr
           p=description
           a(href='').button.
             Read #{location} report
-  
+
     +block-pair('Chicago', 'Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.')
     +block-pair('Rio', 'Until the advent of smartphones, LAN Houses were one of the primary points for Brazilian citizens to access the web. Now, LAN Houses are forced to diversity their services to attract.')
     +block-pair('Synthesis', 'Summarizing an investigation of the Web as a platform for generating locally-relevant content, this report includes lessons from India, Kenya, and Bangladesh and recommendations for manifesting impact in these regions through technology.')
@@ -48,4 +48,15 @@ html
     +block-pair('Bangladesh', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tortor quis metus tempus tincidunt arcu iaculis. Sed lobortis dignissim nisl sit amet rhoncus. Cras sit amet arcu auctor iaculis purus ac, vulputate augue.')
 
   footer
-    p Mozilla
+    mixin social-link(type, url, label)
+      .social-link
+        img(src='./images/footer-icon-' + type + '.svg')
+        a(href=url)=label
+
+    .social
+      +social-link('twitter', '#NEED_URL', 'Talk to us on Twitter')
+      +social-link('github', '#NEED_URL', 'Contribute on Github')
+      +social-link('tos', '#NEED_URL', 'Terms of Service')
+      +social-link('pp', '#NEED_URL', 'Privacy Policy')
+
+    a(class='mozilla', href='#NEED_URL') Mozilla
