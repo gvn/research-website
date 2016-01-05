@@ -32,7 +32,6 @@ html
 
     .block.block-header
       +headline
-      
       p.
         Mozilla has studied, documented, and learned from the stories of over 600 real people in 22 communities in 7 countries and their relationship with technology in an effort to understand thte role of the Web in their economies, their communities, their work — their lives.
 
@@ -40,11 +39,12 @@ html
       .wrapper(id=location.toLowerCase())
         .block.block-image
         .block
-          h2=location
-          hr
-          p=description
-          a(href='').button.
-            Read #{location} report
+          .inner
+            h2=location
+            hr
+            p=description
+            a(href='#NEED_URL').button.
+              Read #{location} report
 
     +block-pair('Chicago', 'Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.')
     +block-pair('Rio', 'Until the advent of smartphones, LAN Houses were one of the primary points for Brazilian citizens to access the web. Now, LAN Houses are forced to diversity their services to attract.')

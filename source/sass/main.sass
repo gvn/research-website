@@ -33,6 +33,12 @@ h1, h2
   font-size: 5.2rem
   font-weight: 200
 
+@media screen and (min-width: $bp-large)
+  h1
+    font-size: 7.6rem
+  h2
+    font-size: 6.6rem
+
 hr
   width: 25%
   margin: 10px auto
@@ -42,6 +48,7 @@ hr
 
 .button
   border: 1px solid $white
+  font-weight: 400
   text-transform: uppercase
   padding: 10px
   margin: 10px 0
@@ -50,9 +57,9 @@ hr
   display: inline-block
 
 header
-  background: url(../images/banner.jpg)
+  background: url(../images/banner@2x.jpg)
   background-size: cover
-  background-position: center
+  background-position: top
   min-height: 300px
   display: flex
   padding: 10px
@@ -74,6 +81,8 @@ header
     padding: 20px
 
     .headline
+      max-width: 900px
+      margin: auto
       display: flex
       flex-direction: column
       justify-content: center
@@ -81,23 +90,39 @@ header
       text-align: center
       color: $white
       min-height: 450px
+      @media screen and (min-width: $bp-medium)
+        min-height: 720px
       p
         font-size: 20px
+        font-style: italic
+        @media screen and (min-width: $bp-large)
+          font-size: 24px
 
 .block
   padding: 40px 10px
+  @media screen and (min-width: $bp-medium)
+    padding: 80px 40px
   color: $white
   font-size: 1.6rem
   text-align: center
 
   p
     margin: 1em 0
+    line-height: 1.8em
+    @media screen and (min-width: $bp-large)
+      font-size: 1.8rem
 
     &.larger
       font-size: 2rem
 
   &.block-header
     background: $light-gray
+    p
+      max-width: 950px
+      margin: auto
+      @media screen and (min-width: $bp-large)
+        font-size: 2rem
+        margin: 40px auto
 
     @media screen and (min-width: $bp-medium)
       .headline
@@ -120,6 +145,9 @@ header
 
     .block
       flex: 1
+      .inner
+        margin: auto
+        max-width: 600px
 
 @mixin custom-block-pair($color, $image)
   .block
@@ -164,8 +192,10 @@ header
       margin: 0 0.25rem
 
 footer
+  max-width: 740px
+  margin: auto
   text-align: center
-  padding: 20px
+  padding: 40px 0
   color: rgba(255, 255, 255, 0.5)
 
   .mozilla
