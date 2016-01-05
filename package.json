@@ -7,7 +7,8 @@
     "start": "npm run build && npm-run-all --parallel server watch:**",
     "build": "mkdirp dest && npm-run-all --parallel build:** copy:images",
     "build:jade": "jade source/index.jade -o dest",
-    "build:sass": "node-sass --source-map dest/css/main.css.map source/sass/main.sass dest/css/main.compiled.css",
+    "build:sass": "node-sass --source-map dest/css/main.css.map source/sass/main.sass dest/css/main.compiled.css && npm run autoprefix",
+    "autoprefix": "postcss --use autoprefixer dest/css/main.compiled.css --output dest/css/main.compiled.prefixed.css",
     "server": "live-server ./dest --port=1979",
     "copy:images": "ncp source/images dest/images",
     "watch:jade": "chokidar 'source/index.jade' -c 'npm run build:jade'",
@@ -16,13 +17,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.2.3",
     "chokidar-cli": "^1.2.0",
     "jade": "^1.11.0",
     "live-server": "^0.9.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "node-sass": "^3.4.2",
-    "npm-run-all": "^1.4.0"
+    "npm-run-all": "^1.4.0",
+    "postcss-cli": "^2.3.3"
   },
   "dependencies": {
     "mozilla-tabzilla": "0.5.1"
