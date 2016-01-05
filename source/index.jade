@@ -19,7 +19,10 @@ html
     title Studying the Global Web
   body
     header
-      p.attribution photos by Laura de Reynal
+      p.attribution.
+        photos by 
+          a(href='') 
+            Laura de Reynal
 
     .block.block-header
       h1.
@@ -30,71 +33,22 @@ html
       p.
         Mozilla has studied, documented, and learned from the stories of over 600 real people in 22 communities in 7 countries and their relationship with technology in an effort to understand thte role of the Web in their economies, their communities, their work — their lives.
 
-    .wrapper#chicago
-      .block.block-image
-      .block
-        h1.
-          Chicago
-        hr
-        p.
-          Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.
-        a(href='').button.
-          Read Chicago report
-
-    .wrapper#rio
-      .block.block-image
-      .block
-        h1.
-          Rio
-        hr
-        p.
-          Until the advent of smartphones, LAN Houses were one of the primary points for Brazilian citizens to access the web. Now, LAN Houses are forced to diversity their services to attract.
-        a(href='').button.
-          Read Rio report
-
-    .wrapper#synthesis
-      .block.block-image
-      .block
-        h1.
-          Synthesis
-        hr
-        p.
-          Summarizing an investigation of the Web as a platform for generating locally-relevant content, this report includes lessons from India, Kenya, and Bangladesh and recommendations for manifesting impact in these regions through technology.
-        a(href='').button.
-          Read Synthesis report
-
-    .wrapper#india
-      .block.block-image
-      .block
-        h1.
-          India
-        hr
-        p.
-          The popular view of technology in the Western world is challenged in this report of the effects and usage patterns of mobile phones and the Web on teenagers and their education system in the segmented urban hub of Chicago, Illinois.
-        a(href='').button.
-          Read India report
-
-    .wrapper#kenya
-      .block.block-image
-      .block
-        h1.
-          Kenya
-        hr
-        p.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tortor quis metus tempus tincidunt arcu iaculis. Sed lobortis dignissim nisl sit amet rhoncus. Cras sit amet arcu auctor iaculis purus ac, vulputate augue.
-        a(href='').button.
-          Read Kenya report
-
-    .wrapper#bangladesh
-      .block.block-image
-      .block
-        h1.
-          Bangladesh
-        hr
-        p.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tortor quis metus tempus tincidunt arcu iaculis. Sed lobortis dignissim nisl sit amet rhoncus. Cras sit amet arcu auctor iaculis purus ac, vulputate augue.
-        a(href='').button.
-          Read Bangladesh report
+    mixin block-pair(location, description)
+      .wrapper(id=location.toLowerCase())
+        .block.block-image
+        .block
+          h1=location
+          hr
+          p=description
+          a(href='').button.
+            Read #{location} report
+  
+    +block-pair('Chicago', 'Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.')
+    +block-pair('Rio', 'Until the advent of smartphones, LAN Houses were one of the primary points for Brazilian citizens to access the web. Now, LAN Houses are forced to diversity their services to attract.')
+    +block-pair('Synthesis', 'Summarizing an investigation of the Web as a platform for generating locally-relevant content, this report includes lessons from India, Kenya, and Bangladesh and recommendations for manifesting impact in these regions through technology.')
+    +block-pair('India', 'The popular view of technology in the Western world is challenged in this report of the effects and usage patterns of mobile phones and the Web on teenagers and their education system in the segmented urban hub of Chicago, Illinois.')
+    +block-pair('Kenya', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tortor quis metus tempus tincidunt arcu iaculis. Sed lobortis dignissim nisl sit amet rhoncus. Cras sit amet arcu auctor iaculis purus ac, vulputate augue.')
+    +block-pair('Bangladesh', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tortor quis metus tempus tincidunt arcu iaculis. Sed lobortis dignissim nisl sit amet rhoncus. Cras sit amet arcu auctor iaculis purus ac, vulputate augue.')
 
   footer
     p Mozilla
