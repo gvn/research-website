@@ -18,15 +18,21 @@ html
     link(rel='stylesheet', href='//code.cdn.mozilla.net/fonts/fira.css')
     title Studying the Global Web
   body
+    mixin headline()
+      .headline
+        h1.
+          Studying the Global Web
+        hr
+        p.larger.
+          Across the world, technology is used by many kinds of people, in very different circumstances, and for a variety of purposes.
+
     header
+      +headline
       p.attribution photos by #[a(href='#NEED_URL') Laura de Reynal]
 
     .block.block-header
-      h1.
-        Studying the Global Web
-      hr
-      p.larger.
-        Across the world, technology is used by many kinds of people, in very different circumstances, and for a variety of purposes.
+      +headline
+      
       p.
         Mozilla has studied, documented, and learned from the stories of over 600 real people in 22 communities in 7 countries and their relationship with technology in an effort to understand thte role of the Web in their economies, their communities, their work — their lives.
 
