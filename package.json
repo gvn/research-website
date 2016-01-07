@@ -7,7 +7,7 @@
     "start": "npm run build && npm-run-all --parallel server watch:**",
     "build": "mkdirp dest && npm-run-all --parallel build:** copy:images",
     "build:jade": "jade source/index.jade -o dest",
-    "build:sass": "node-sass --source-map dest/css/main.css.map source/sass/main.sass dest/css/main.compiled.css && npm run autoprefix",
+    "build:sass": "node-sass source/sass/main.sass dest/css/main.compiled.css && npm run autoprefix",
     "autoprefix": "postcss --use autoprefixer dest/css/main.compiled.css --output dest/css/main.compiled.prefixed.css",
     "server": "live-server ./dest --port=1979",
     "copy:images": "ncp source/images dest/images",
