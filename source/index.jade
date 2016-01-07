@@ -1,3 +1,15 @@
+mixin logo()
+  p.mozilla-logo
+    a(href='https://www.mozilla.org' target='_blank') Mozilla
+
+mixin headline()
+  .headline
+    h1.
+      Studying the Global Web
+    hr
+    p.larger.
+      Across the world, technology is used by many kinds of people, in very different circumstances, and for a variety of purposes.
+
 doctype html
 html
   head
@@ -18,15 +30,8 @@ html
     link(rel='stylesheet', href='//code.cdn.mozilla.net/fonts/fira.css')
     title Studying the Global Web
   body
-    mixin headline()
-      .headline
-        h1.
-          Studying the Global Web
-        hr
-        p.larger.
-          Across the world, technology is used by many kinds of people, in very different circumstances, and for a variety of purposes.
-
     header
+      +logo
       +headline
       p.attribution photos by #[a(href='http://flickr.com/photos/laura_nk/albums' target='_blank') Laura de Reynal]
 
@@ -65,4 +70,4 @@ html
       +social-link('flickr', 'http://www.flickr.com/photos/laura_nk/albums', 'See our pics on Flickr')
       +social-link('github', 'http://github.com/MozillaFoundation/research', 'Check us out on Github')
 
-    a(class='mozilla', href='#NEED_URL') Mozilla
+    +logo

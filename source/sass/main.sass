@@ -11,6 +11,13 @@ $bp-large: 1170px
   margin: 0
   padding: 0
 
+@mixin text-hide
+  font: 0/0 a
+  color: transparent
+  text-shadow: none
+  background-color: transparent
+  border: 0
+
 html
   font-size: 10px // Makes 1rem = 10px
 
@@ -56,6 +63,19 @@ hr
   color: $white
   display: inline-block
 
+.mozilla-logo
+  line-height: 0
+  a
+    @include text-hide
+    display: inline-block
+    background: url(../images/mozilla.svg) no-repeat
+    background-size: contain
+    width: 100px
+    height: 26px
+    opacity: 0.5
+    &:focus, &:hover
+      opacity: 1
+
 header
   background: url(../images/banner@2x.jpg)
   background-size: cover
@@ -66,6 +86,9 @@ header
   flex-direction: column
   justify-content: flex-end
 
+  .mozilla-logo
+    text-align: right
+    flex-grow: 1
   .attribution, .attribution a
     font-size: 1.2rem
     font-style: italic
@@ -169,8 +192,9 @@ header
 #bangladesh
   @include custom-block-pair(rgb(122,184,187), '../images/bangladesh.jpg')
 
-@media screen and (min-width: $bp-medium)
-  .social
+.social
+  margin-bottom: 3.2rem
+  @media screen and (min-width: $bp-medium)
     display: flex
     justify-content: space-between
 
@@ -196,7 +220,7 @@ footer
   max-width: 740px
   margin: auto
   text-align: center
-  padding: 40px 0
+  padding: 40px 0 60px 0
   color: rgba(255, 255, 255, 0.5)
 
   .mozilla
