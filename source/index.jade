@@ -40,23 +40,24 @@ html
       p.
         Mozilla has studied, documented, and learned from the stories of over 600 real people in 22 communities in 7 countries and their relationship with technology in an effort to understand thte role of the Web in their economies, their communities, their work — their lives.
 
-    mixin block-pair(location, reportURL, description)
+    mixin block-pair(location, date, reportURL, description)
       .wrapper(id=location.toLowerCase())
         .block.block-image
         .block
           .inner
+            h3.date=date
             h2=location
             hr
             p=description
             a(href=reportURL target="_blank").button.
               Read #{location} report
 
-    +block-pair('Chicago', 'http://mzl.la/chicago', 'Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.')
-    +block-pair('Rio', 'http://mzl.la/lanhouses', 'Until the advent of smartphones, LAN Houses were one of the primary points for Brazilian citizens to access the web. Now, LAN Houses are forced to diversity their services to attract.')
-    +block-pair('Synthesis', 'http://mzl.la/research', 'Summarizing an investigation of the Web as a platform for generating locally-relevant content, this report includes lessons from India, Kenya, and Bangladesh and recommendations for manifesting impact in these regions through technology.')
-    +block-pair('India', 'http://mzl.la/india', 'The popular view of technology in the Western world is challenged in this report of the effects and usage patterns of mobile phones and the Web on teenagers and their education system in the segmented urban hub of Chicago, Illinois.')
-    +block-pair('Kenya', 'http://mzl.la/kenya', 'A continuation of The Mobile Opportunity Initiative research program in Kenya. Contributing further to the development of Webmaker, the unique aspects and perspectives of Kenya’s society paint a vivid picture of the role of mobile technology and local content this emerging digital economy.')
-    +block-pair('Bangladesh', 'http://mzl.la/bangladesh', 'The Mobile Opportunity Initiative’s multi-disciplinary research program studies technology and design to increase participation in mobile digital life in emerging digital economies such as Bangladesh. Steeped in the rich culture of Bangladesh, and driving the development of Webmaker, this report begins to detail motivations and constraints related to local content creation and how the creation and sharing of applications and content can enrich people’s lives.')
+    +block-pair('Chicago', 'September 2015', 'http://mzl.la/chicago', 'Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.')
+    +block-pair('Rio', 'March 2015', 'http://mzl.la/lanhouses', 'Until the advent of smartphones, LAN Houses were one of the primary points for Brazilian citizens to access the web. Now, LAN Houses are forced to diversity their services to attract.')
+    +block-pair('Synthesis', 'March 2015', 'http://mzl.la/research', 'Summarizing an investigation of the Web as a platform for generating locally-relevant content, this report includes lessons from India, Kenya, and Bangladesh and recommendations for manifesting impact in these regions through technology.')
+    +block-pair('India', 'January 2015', 'http://mzl.la/india', 'The popular view of technology in the Western world is challenged in this report of the effects and usage patterns of mobile phones and the Web on teenagers and their education system in the segmented urban hub of Chicago, Illinois.')
+    +block-pair('Kenya', 'November 2014', 'http://mzl.la/kenya', 'A continuation of The Mobile Opportunity Initiative research program in Kenya. Contributing further to the development of Webmaker, the unique aspects and perspectives of Kenya’s society paint a vivid picture of the role of mobile technology and local content this emerging digital economy.')
+    +block-pair('Bangladesh', 'October 2014', 'http://mzl.la/bangladesh', 'The Mobile Opportunity Initiative’s multi-disciplinary research program studies technology and design to increase participation in mobile digital life in emerging digital economies such as Bangladesh. Steeped in the rich culture of Bangladesh, and driving the development of Webmaker, this report begins to detail motivations and constraints related to local content creation and how the creation and sharing of applications and content can enrich people’s lives.')
 
   footer
     mixin social-link(type, url, label)
