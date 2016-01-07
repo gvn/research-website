@@ -1,8 +1,8 @@
 // Colors
 $black: #000
 $white: #fff
-$dark-gray: #3C3C3B
-$light-gray: #A09D9A
+$dark-gray: rgb(77,77,77)
+$light-gray: rgb(177,173,170)
 
 $bp-medium: 820px
 $bp-large: 1170px
@@ -131,6 +131,7 @@ header
   &.block-image
     min-height: 300px
     background-size: cover
+    background-position: 50% 0
     background-repeat: no-repeat
 
 @media screen and (min-width: $bp-medium)
@@ -156,17 +157,17 @@ header
     background-image: url($image)
 
 #chicago
-  @include custom-block-pair(#D06080,'../images/chicago.jpg')
+  @include custom-block-pair(rgb(221,136,160),'../images/chicago.jpg')
 #rio
-  @include custom-block-pair(#7A9D79, '../images/rio.jpg')
+  @include custom-block-pair(rgb(154,180,154), '../images/rio.jpg')
 #synthesis
-  @include custom-block-pair(#7A3B59, '../images/synthesis.jpg')
+  @include custom-block-pair(rgb(167,120,140), '../images/synthesis.jpg')
 #india
-  @include custom-block-pair(#E5AE56, '../images/india.jpg')
+  @include custom-block-pair(rgb(236,193,127), '../images/india.jpg')
 #kenya
-  @include custom-block-pair(#A7A761, '../images/kenya.jpg')
+  @include custom-block-pair(rgb(189,187,136), '../images/kenya.jpg')
 #bangladesh
-  @include custom-block-pair(#56A1A5, '../images/bangladesh.jpg')
+  @include custom-block-pair(rgb(122,184,187), '../images/bangladesh.jpg')
 
 @media screen and (min-width: $bp-medium)
   .social
