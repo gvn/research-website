@@ -12,7 +12,8 @@
     "server": "live-server ./dest --port=1979",
     "copy:images": "ncp source/images dest/images",
     "watch:jade": "chokidar 'source/index.jade' -c 'npm run build:jade'",
-    "watch:sass": "chokidar 'source/sass/main.sass' -c 'npm run build:sass'"
+    "watch:sass": "chokidar 'source/sass/main.sass' -c 'npm run build:sass'",
+    "watch:images": "chokidar 'source/images/*' -c 'npm run copy:images'"
   },
   "author": "",
   "license": "ISC",
