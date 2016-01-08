@@ -61,10 +61,9 @@ html
 
   footer
     mixin social-link(type, url, label)
-      .social-link
+      a(href=url class='social-link' target='_blank')
         img(src='./images/footer-icon-' + type + '.svg')
-        a(href=url target='_blank')=label
-
+        span=label
     .social
       +social-link('email', 'mailto:research@mozillafoundation.org', 'Email us')
       +social-link('twitter', 'http://twitter.com/mozteach', 'Talk to us on Twitter')
