@@ -215,23 +215,25 @@ header
   .block
     background-color: $color
   .block-image
-    background-image: url($image)
+    background-image: url(../images/#{$image}.jpg)
+    @media screen and (min-width: $bp-medium)
+      background-image: url(../images/#{$image}@2x.jpg)
   .button
     &:hover, &:focus
       color: $color
 
 #chicago
-  @include custom-block-pair(rgb(221,136,160),'../images/chicago.jpg')
+  @include custom-block-pair(rgb(221,136,160),'chicago')
 #rio
-  @include custom-block-pair(rgb(154,180,154), '../images/rio.jpg')
+  @include custom-block-pair(rgb(154,180,154), 'rio')
 #synthesis
-  @include custom-block-pair(rgb(167,120,140), '../images/synthesis.jpg')
+  @include custom-block-pair(rgb(167,120,140), 'synthesis')
 #india
-  @include custom-block-pair(rgb(236,193,127), '../images/india.jpg')
+  @include custom-block-pair(rgb(236,193,127), 'india')
 #kenya
-  @include custom-block-pair(rgb(189,187,136), '../images/kenya.jpg')
+  @include custom-block-pair(rgb(189,187,136), 'kenya')
 #bangladesh
-  @include custom-block-pair(rgb(122,184,187), '../images/bangladesh.jpg')
+  @include custom-block-pair(rgb(122,184,187), 'bangladesh')
 
 .social
   margin-bottom: 3.2rem
