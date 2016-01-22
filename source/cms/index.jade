@@ -3,10 +3,19 @@ html
   head
     meta(charset='utf-8')
     title CMS
+    link(rel='stylesheet', href='css/cms.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css')
   body
-    h1 CMS
-    #editor_holder
-    button#submit Submit
+    .page-header
+      h1 MOFO.CMS
+    
+    #actions
+      button.btn.btn-primary#submit
+        .glyphicon.glyphicon-save  Save
+      
+    #editor
+    
     
   script(src='./js/lib/jsoneditor.js')
   script(src='./js/cms.js')

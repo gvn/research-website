@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "id": "/headline",
+      "type": "string"
+    },
+    "subhead": {
+      "id": "/subhead",
+      "type": "string"
+    },
+    "subhead2": {
+      "id": "/subhead2",
+      "type": "string"
+    },
+    "blockPairs": {
+      "id": "/blockPairs",
+      "type": "array",
+      "items": {
+        "id": "/blockPairs/0",
+        "type": "object",
+        "properties": {
+          "location": {
+            "id": "/blockPairs/0/location",
+            "type": "string"
+          },
+          "date": {
+            "id": "/blockPairs/0/date",
+            "type": "string"
+          },
+          "reportURL": {
+            "id": "/blockPairs/0/reportURL",
+            "type": "string"
+          },
+          "description": {
+            "id": "/blockPairs/0/description",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "headline",
+    "subhead",
+    "subhead2",
+    "blockPairs"
+  ]
+}
