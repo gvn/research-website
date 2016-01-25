@@ -1,70 +1,67 @@
 JSONEditor.defaults.theme = 'bootstrap3';
 JSONEditor.defaults.iconlib = 'bootstrap3';
 
-// Initialize the editor with a JSON schema
-var editor = new JSONEditor(document.getElementById('editor'),{
-  // TODO : Make schema external
-  schema: {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "mofoResearch",
-    "type": "object",
-    "properties": {
-      "headline": {
-        "id": "mofoResearch/headline",
-        "type": "string"
-      },
-      "subhead": {
-        "id": "mofoResearch/subhead",
-        "type": "string"
-      },
-      "subhead2": {
-        "id": "mofoResearch/subhead2",
-        "type": "string"
-      },
-      "blockPairs": {
-        "id": "mofoResearch/blockPairs",
-        "type": "array",
-        "items": {
-          "id": "mofoResearch/blockPairs/0",
-          "type": "object",
-          "properties": {
-            "location": {
-              "id": "mofoResearch/blockPairs/0/location",
-              "type": "string"
-            },
-            "date": {
-              "id": "mofoResearch/blockPairs/0/date",
-              "type": "string",
-              "format": "date"
-            },
-            "reportURL": {
-              "id": "mofoResearch/blockPairs/0/reportURL",
-              "type": "string",
-              "format": "url"
-            },
-            "description": {
-              "id": "mofoResearch/blockPairs/0/description",
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "required": [
-      "headline",
-      "subhead",
-      "subhead2",
-      "blockPairs"
-    ]
-  }
-});
+var editor;
 
-editor.setValue(JSON.parse(localStorage.getItem('page')));
+function loadSchema() {
+  var request = new XMLHttpRequest();
+
+  request.onload = (data) => {
+    editor = new JSONEditor(document.getElementById('editor'),{
+      // Initialize the editor with a JSON schema
+      schema: JSON.parse(data.currentTarget.response)
+    });
+
+    loadJSON();
+  }
+
+  request.onerror = () => {
+    console.error(`loadSchema failed.`);
+  }
+
+  request.open('GET', `http://localhost:31319/schema`);
+  request.send();
+}
+
+function loadJSON() {
+  var request = new XMLHttpRequest();
+
+  request.onload = (data) => {
+    editor.setValue(JSON.parse(data.currentTarget.response));
+  }
+
+  request.onerror = () => {
+    console.error(`loadJSON failed.`);
+  }
+
+  request.open('GET', `http://localhost:31319/blob`);
+  request.send();
+}
+
+function saveJSON() {
+  var pageJSON = editor.getValue();
+  var request = new XMLHttpRequest();
+
+  request.onload = function() {
+    if (this.status === 200) {
+      console.log(`Data Stored`);
+    } else {
+      console.error(`Persistence error: ${this.status}`);
+    }
+  };
+
+  request.onerror = function() {
+    console.error(`Request failed`);
+  };
+
+  request.open('POST', 'http://localhost:31319/blob');
+  request.setRequestHeader(`Content-Type`, `application/json`);
+  request.send(JSON.stringify(pageJSON));
+  console.log('asdfasdf');
+}
 
 document.getElementById('submit').addEventListener('click',function() {
-  var pageJSON = editor.getValue();
-
-  console.log(pageJSON);
-
-  localStorage.setItem('page', JSON.stringify(pageJSON));
+  saveJSON();
 });
+
+loadSchema();

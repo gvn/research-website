@@ -13,6 +13,9 @@ server.connection({
 server.route({
   method: 'GET',
   path:'/blob',
+  config: {
+    cors: true
+  },
   handler: function (request, reply) {
     fs.readFile('./blob.json', 'utf8', (err, data) => {
       return reply(data).type('text/json');
@@ -23,6 +26,9 @@ server.route({
 server.route({
   method: 'POST',
   path: '/blob',
+  config: {
+    cors: true
+  },
   handler: (request, reply) => {
     var success = true;
 
@@ -38,12 +44,25 @@ server.route({
     }
 
     if (success) {
-      fs.writeFile('./blob.json', request.payload, (err) => {
+      fs.writeFile('./blob.json', JSON.stringify(request.payload), (err) => {
         return reply('JSON stored.');
       });
     } else {
       return reply('Request failed due to malformed JSON.').code(400);
     }
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/schema',
+  config: {
+    cors: true
+  },
+  handler: (request, reply) => {
+    fs.readFile('./schema.json', 'utf8', (err, data) => {
+      return reply(data).type('text/json');
+    });
   }
 });
 

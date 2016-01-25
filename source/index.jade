@@ -50,8 +50,9 @@ html
             p=description
             a(href=reportURL target="_blank").button.
               Read #{location} report
-    each blockPair in blockPairs
-      +block-pair(blockPair.location, blockPair.date, blockPair.reportURL, blockPair.description)
+    if blockPairs
+      each blockPair in blockPairs
+        +block-pair(blockPair.location, blockPair.date, blockPair.reportURL, blockPair.description)
 
   footer
     mixin social-link(type, url, label)
@@ -59,7 +60,8 @@ html
         img(src='./images/footer-icon-' + type + '.svg')
         span=label
     .social
-      each socialLink in socialLinks
-        +social-link(socialLink.type, socialLink.url, socialLink.label)
+      if socialLinks
+        each socialLink in socialLinks
+          +social-link(socialLink.type, socialLink.url, socialLink.label)
 
     +logo

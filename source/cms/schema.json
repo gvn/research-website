@@ -1,41 +1,43 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "",
+  "id": "mofoResearch",
   "type": "object",
   "properties": {
     "headline": {
-      "id": "/headline",
+      "id": "mofoResearch/headline",
       "type": "string"
     },
     "subhead": {
-      "id": "/subhead",
+      "id": "mofoResearch/subhead",
       "type": "string"
     },
     "subhead2": {
-      "id": "/subhead2",
+      "id": "mofoResearch/subhead2",
       "type": "string"
     },
     "blockPairs": {
-      "id": "/blockPairs",
+      "id": "mofoResearch/blockPairs",
       "type": "array",
       "items": {
-        "id": "/blockPairs/0",
+        "id": "mofoResearch/blockPairs/0",
         "type": "object",
         "properties": {
           "location": {
-            "id": "/blockPairs/0/location",
+            "id": "mofoResearch/blockPairs/0/location",
             "type": "string"
           },
           "date": {
-            "id": "/blockPairs/0/date",
-            "type": "string"
+            "id": "mofoResearch/blockPairs/0/date",
+            "type": "string",
+            "format": "date"
           },
           "reportURL": {
-            "id": "/blockPairs/0/reportURL",
-            "type": "string"
+            "id": "mofoResearch/blockPairs/0/reportURL",
+            "type": "string",
+            "format": "url"
           },
           "description": {
-            "id": "/blockPairs/0/description",
+            "id": "mofoResearch/blockPairs/0/description",
             "type": "string"
           }
         }
