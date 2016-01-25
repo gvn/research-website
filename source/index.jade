@@ -5,10 +5,10 @@ mixin logo()
 mixin headline()
   .headline
     h1.
-      Studying the Global Web
+      #{headline}
     hr
     p.larger.
-      Across the world, technology is used by many kinds of people, in very different circumstances, and for a variety of purposes.
+      #{subhead}
 
 doctype html
 html
@@ -28,17 +28,16 @@ html
     meta(name='twitter:domain', content='webmaker.org')
     link(rel='stylesheet', href='css/main.compiled.prefixed.css')
     link(rel='stylesheet', href='//code.cdn.mozilla.net/fonts/fira.css')
-    title Studying the Global Web
+    title #{title}
   body
     header
       +logo
       +headline
-      p.attribution photos by #[a(href='http://flickr.com/photos/laura_nk/albums' target='_blank') Laura de Reynal]
+      p.attribution !{attribution}
 
     .block.block-header
       +headline
-      p.
-        This disparity impacts the way the Web is perceived, used, protected, and taught, and is a reflection of humanity's acceptance of new methods and ideas into culture. Mozilla has studied, documented, and learned from the stories of over #[strong 600] real people in #[strong 22] communities in #[strong 7] countries and their relationship with technology in an effort to understand the role of the Web in their economies, their communities, their work &mdash; #[strong their lives].
+      p !{subhead2}
 
     mixin block-pair(location, date, reportURL, description)
       .wrapper(id=location.toLowerCase())
@@ -51,13 +50,8 @@ html
             p=description
             a(href=reportURL target="_blank").button.
               Read #{location} report
-
-    +block-pair('Chicago', 'September 2015', 'http://mzl.la/chicago', 'Findings from a two-week ethnographic research project in Chicago, Illinois, stemming from a desire to co-design our products and programs with our users, and to grant our work an international scope.')
-    +block-pair('Rio', 'March 2015', 'http://mzl.la/lanhouses', 'Until the advent of smartphones, LAN Houses were one of the primary points of web access for people in Brazil. Now, as LAN Houses are forced to diversity their services to attract clientele, can they serve as sustainable digital making and learning spaces?')
-    +block-pair('Synthesis', 'March 2015', 'http://mzl.la/synthesis', 'Summarizing an investigation of the Web as a platform for generating locally-relevant content, this report includes lessons from India, Kenya, and Bangladesh and recommendations for manifesting impact in these regions through technology (e.g. building Webmaker).')
-    +block-pair('India', 'January 2015', 'http://mzl.la/india', 'A continuation of The Mobile Opportunity Initiative research program in India. Is there a direct relationship between digital skills and local content creation? In emerging digital economies like India, the potential to empower new smartphone users is textured by motivations and constraints for local content creation and distribution.')
-    +block-pair('Kenya', 'November 2014', 'http://mzl.la/kenya', 'A continuation of The Mobile Opportunity Initiative research program in Kenya. Contributing further to the development of Webmaker, the unique aspects and perspectives of Kenya’s society paint a vivid picture of the role of mobile technology and local content this emerging digital economy.')
-    +block-pair('Bangladesh', 'October 2014', 'http://mzl.la/bangladesh', 'The Mobile Opportunity Initiative’s multi-disciplinary research program studies technology and design to increase participation in mobile digital life in emerging digital economies such as Bangladesh. Steeped in the rich culture of Bangladesh, and driving the development of Webmaker, this report begins to detail motivations and constraints related to local content creation and how the creation and sharing of applications and content can enrich people’s lives.')
+    each blockPair in blockPairs
+      +block-pair(blockPair.location, blockPair.date, blockPair.reportURL, blockPair.description)
 
   footer
     mixin social-link(type, url, label)
@@ -65,9 +59,7 @@ html
         img(src='./images/footer-icon-' + type + '.svg')
         span=label
     .social
-      +social-link('email', 'mailto:research@mozillafoundation.org', 'Email us')
-      +social-link('twitter', 'http://twitter.com/mozteach', 'Talk to us on Twitter')
-      +social-link('flickr', 'http://www.flickr.com/photos/laura_nk/albums', 'See our pics on Flickr')
-      +social-link('github', 'http://github.com/MozillaFoundation/research', 'Check us out on Github')
+      each socialLink in socialLinks
+        +social-link(socialLink.type, socialLink.url, socialLink.label)
 
     +logo

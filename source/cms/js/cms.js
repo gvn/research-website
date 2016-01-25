@@ -34,11 +34,13 @@ var editor = new JSONEditor(document.getElementById('editor'),{
             },
             "date": {
               "id": "mofoResearch/blockPairs/0/date",
-              "type": "string"
+              "type": "string",
+              "format": "date"
             },
             "reportURL": {
               "id": "mofoResearch/blockPairs/0/reportURL",
-              "type": "string"
+              "type": "string",
+              "format": "url"
             },
             "description": {
               "id": "mofoResearch/blockPairs/0/description",

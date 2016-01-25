@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server watch:**",
     "build": "npm run include && mkdirp dest && npm-run-all --parallel build:** copy:**",
-    "build:jade": "jade source -o dest --hierarchy",
+    "build:jade": "jade --obj source/dummy.json source/index.jade -o dest/ && jade source/cms -o dest/cms",
     "build:sass": "node-sass source/sass/main.sass dest/css/main.compiled.css && npm run autoprefix",
     "include": "ncp node_modules/json-editor/dist/jsoneditor.js source/cms/js/lib/jsoneditor.js",
     "autoprefix": "postcss --use autoprefixer dest/css/main.compiled.css --output dest/css/main.compiled.prefixed.css",
