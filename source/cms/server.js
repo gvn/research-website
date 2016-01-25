@@ -1,0 +1,57 @@
+const Hapi = require('hapi');
+const fs = require('fs');
+
+// Create a server with a host and port
+const server = new Hapi.Server();
+
+server.connection({
+  host: 'localhost',
+  port: 31319
+});
+
+// Add the route
+server.route({
+  method: 'GET',
+  path:'/blob',
+  handler: function (request, reply) {
+    fs.readFile('./blob.json', 'utf8', (err, data) => {
+      return reply(data).type('text/json');
+    });
+  }
+});
+
+server.route({
+  method: 'POST',
+  path: '/blob',
+  handler: (request, reply) => {
+    var success = true;
+
+    if (request.headers['content-type'] !== 'application/json') {
+      try {
+        JSON.parse(request.payload);
+      } catch (err) {
+        console.log(err);
+        success = false;
+      }
+    } else {
+      console.log(request.payload);
+    }
+
+    if (success) {
+      fs.writeFile('./blob.json', request.payload, (err) => {
+        return reply('JSON stored.');
+      });
+    } else {
+      return reply('Request failed due to malformed JSON.').code(400);
+    }
+  }
+});
+
+// Start the server
+server.start((err) => {
+  if (err) {
+    throw err;
+  }
+
+  console.log('Server running at:', server.info.uri);
+});
