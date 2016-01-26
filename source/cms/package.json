@@ -11,5 +11,22 @@
   "license": "ISC",
   "dependencies": {
     "hapi": "^12.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "mofo-style": "^2.0.0"
+  },
+  "scripts": {
+    "lint": "eslint --fix server.js js/cms.js"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/mofo-style/.eslintrc.yaml",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "no-console": 0
+    }
   }
 }

@@ -1,40 +1,43 @@
-JSONEditor.defaults.theme = 'bootstrap3';
-JSONEditor.defaults.iconlib = 'bootstrap3';
+/* global JSONEditor */
+// TODO : Remove this global ^
+
+JSONEditor.defaults.theme = `bootstrap3`;
+JSONEditor.defaults.iconlib = `bootstrap3`;
 
 var editor;
-
-function loadSchema() {
-  var request = new XMLHttpRequest();
-
-  request.onload = (data) => {
-    editor = new JSONEditor(document.getElementById('editor'),{
-      // Initialize the editor with a JSON schema
-      schema: JSON.parse(data.currentTarget.response)
-    });
-
-    loadJSON();
-  }
-
-  request.onerror = () => {
-    console.error(`loadSchema failed.`);
-  }
-
-  request.open('GET', `http://localhost:31319/schema`);
-  request.send();
-}
 
 function loadJSON() {
   var request = new XMLHttpRequest();
 
   request.onload = (data) => {
     editor.setValue(JSON.parse(data.currentTarget.response));
-  }
+  };
 
   request.onerror = () => {
     console.error(`loadJSON failed.`);
-  }
+  };
 
-  request.open('GET', `http://localhost:31319/blob`);
+  request.open(`GET`, `http://localhost:31319/blob`);
+  request.send();
+}
+
+function loadSchema() {
+  var request = new XMLHttpRequest();
+
+  request.onload = (data) => {
+    editor = new JSONEditor(document.getElementById(`editor`),{
+      // Initialize the editor with a JSON schema
+      schema: JSON.parse(data.currentTarget.response)
+    });
+
+    loadJSON();
+  };
+
+  request.onerror = () => {
+    console.error(`loadSchema failed.`);
+  };
+
+  request.open(`GET`, `http://localhost:31319/schema`);
   request.send();
 }
 
@@ -54,13 +57,13 @@ function saveJSON() {
     console.error(`Request failed`);
   };
 
-  request.open('POST', 'http://localhost:31319/blob');
+  request.open(`POST`, `http://localhost:31319/blob`);
   request.setRequestHeader(`Content-Type`, `application/json`);
   request.send(JSON.stringify(pageJSON));
-  console.log('asdfasdf');
+  console.log(`asdfasdf`);
 }
 
-document.getElementById('submit').addEventListener('click',function() {
+document.getElementById(`submit`).addEventListener(`click`, () => {
   saveJSON();
 });
 
