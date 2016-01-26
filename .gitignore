@@ -2,3 +2,4 @@
 node_modules/
 dest/
 TODO.txt
+source/json/*.json
